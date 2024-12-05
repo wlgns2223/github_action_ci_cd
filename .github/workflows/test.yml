@@ -4,8 +4,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Check yarn version
-        run: yarn --version
       - name: Get the codes
         uses: actions/checkout@v3
       - name: Install nodejs
@@ -13,6 +11,6 @@ jobs:
         with:
           node-version: 22
       - name: Install Deps
-        run: yarn install --frozen-lockfile
+        run: npm ci
       - name: Run Test
-        run: yarn test
+        run: npm run test
