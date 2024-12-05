@@ -1,0 +1,25 @@
+name: PR action
+on:
+  pull_request:
+    types:
+      - opened
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Test Codes
+        run: npm run test
+
+      - name: build
+        run: npm run build
+
+      - name: Deploy
+        run: echo "Deploy..."
