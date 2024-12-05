@@ -4,6 +4,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Check yarn version
+        run: yarn --version
       - name: Get the codes
         uses: actions/checkout@v3
       - name: Install nodejs
