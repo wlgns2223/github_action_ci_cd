@@ -11,6 +11,6 @@ describe("Page", () => {
   it("shuold render main", () => {
     const { getByText } = render(<Page />);
     const main = getByText(/Deploy now/);
-    expect(main).not.toBeInTheDocument();
+    expect(main).toBeInTheDocument();
   });
 });
