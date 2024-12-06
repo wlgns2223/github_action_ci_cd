@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - ".github/workflow/*"
 
 jobs:
   test:
@@ -31,6 +29,12 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifacs@v3
+        with:
+          name: dist-files
+          path: ".next"
 
   deploy:
     needs: build
