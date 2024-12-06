@@ -31,13 +31,14 @@ jobs:
         run: npm run build
 
       - name: check folder
-        run: ls -al
+        run: ls -la
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: dist-files
           path: ".next"
+          include-hidden-files: true
 
   deploy:
     needs: build
