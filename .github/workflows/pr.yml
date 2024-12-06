@@ -30,8 +30,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: check folder
-        run: ls -la
+      - name: Job outputs
+        run: find .next/static/chunks/*.js -type f -execdir echo '{}' ';'
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
