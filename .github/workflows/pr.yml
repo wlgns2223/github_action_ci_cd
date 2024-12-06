@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - main
+    path-ignore:
+      - ".github/workflow/*"
+
 jobs:
   test:
     runs-on: ubuntu-latest
