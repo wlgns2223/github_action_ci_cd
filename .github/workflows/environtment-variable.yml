@@ -3,7 +3,7 @@ on: workflow_dispatch
 jobs:
   test:
     env:
-      MY_ENV: MY_ENV
+      MY_ENV: ${{ secrets.APP_NAME }}
 
     runs-on: ubuntu-latest
     steps:
@@ -17,4 +17,6 @@ jobs:
         run: npm run test
 
       - name: Echo Env
-        run: echo "$MY_ENV"
+        run: |
+          echo "$MY_ENV"
+          echo "MY_ENV: ${{ env.MY_ENV }}"
