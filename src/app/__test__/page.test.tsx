@@ -13,4 +13,8 @@ describe("Page", () => {
     const main = getByText(/Deploy now/);
     expect(main).toBeInTheDocument();
   });
+
+  it("should load environtment variables", () => {
+    expect(process.env.MY_ENV).toBe("MY_ENV");
+  });
 });

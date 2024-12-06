@@ -1,0 +1,17 @@
+name: Environtment Variables
+on: workflow_dispatch
+jobs:
+  test:
+    env:
+      MY_ENV: MY_ENV
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get codes
+        uses: actions/checkout@v3
+
+      - name: Install Deps
+        run: npm ci
+
+      - name: Test Codes
+        run: npm run test
